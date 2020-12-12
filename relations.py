@@ -168,7 +168,7 @@ def create_boolean_matrix(filename):
     # Construct the nxn Boolean matrix, where n = |S|.
     boolean_matrix = np.zeros((len(set_elements), len(set_elements)), dtype=bool)
     # Read the 1D list of ordered pairs two values per iteration.
-    for x in range(len(rel_line), 2):
+    for x in range(0, len(rel_line), 2):
         row = 0  # First element of ordered pair.
         col = 0  # Second element of ordered pair.
         # Find the first element's index on the Boolean matrix using exhaustive search.
@@ -188,9 +188,9 @@ def create_boolean_matrix(filename):
     for x in set_elements:
         print("%3s" % x, end='')
     print("\n---+" + "-" * len(set_elements) * 3, end='')
-    for i in range(0, len(set_elements), 1):
+    for i in range(len(set_elements)):
         print("\n%3s|" % set_elements[i], end='')
-        for j in range(0, len(set_elements), 1):
+        for j in range(len(set_elements)):
             print("%3d" % boolean_matrix[i][j], end='')
     # Return the set and relation (as a Boolean matrix) as a tuple.
     return set_elements, boolean_matrix
